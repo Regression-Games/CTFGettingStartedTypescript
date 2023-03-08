@@ -36,11 +36,11 @@ input, and then click Join Server.
 ![Match dashboard](images/match_dashboard.png)
 
 Click+hold tab to see the players in the match - eventually you will see your bot
-connect (look for its blue outline near spawn). Try telling it to hunt animals 
-by typing "hunt" in the chat (don't whisper to the bot, as it is not configured to
-listen to whispers - only chats)! You can open the chat by pressing "t".
+connect (look for its blue outline near spawn). Try telling it to start capturing
+the flag by typing "start" in the chat (don't whisper to the bot, as it is not configured to
+listen to whispers yet)! You can open the chat by pressing "t".
 
-![Match dashboard](images/dummy.png)
+![Bot capturing flag](images/bot_running.png)
 
-You will notice that you bot is stubborn... it won't do anything! Let's
-begin programming the bot!
+You will notice that you bot begins to approach the flag, grab the flag, and
+then returns to base! Let's take a deeper look at the code and make a few extensions.

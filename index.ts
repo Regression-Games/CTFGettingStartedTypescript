@@ -11,7 +11,7 @@ import { Vec3 } from "vec3";
  * TODO: What happens when a bot is completing an action and 
  *       another event happens?
  * TODO: How do we respond to item spawn and drop events?
- * TODO: How do we target and attach enemies?
+ * TODO: How do we target and attack enemies?
  * TODO: What different states is my bot in, and how can I organize
  *       its behavior based on these states?
  * rg-bot docs: https://github.com/Regression-Games/RegressionBot/blob/main/docs/api.md
