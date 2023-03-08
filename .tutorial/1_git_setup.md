@@ -23,43 +23,30 @@ You can now visit your GitHub repository by clicking the
 link at the top of the Git tool pane.
 
 ![Git initialized](images/replit_git_2.png)
-![Git initialized](images/replit_git_3.png)
+![Git repo](images/replit_git_3.png)
 
 ## Updating code
 
-Whenever you need to update code for your bot, simply visit this
-pane and click "Commit All & Push". Note that sometimes the Git 
-pane **will not detect your changes automatically**. If this happens,
-you can close the Git tab and re-open it using the steps above.
+Whenever you want to update code for your bot, all you need to do
+is push your changes to GitHub! You have two options for doing this.
+
+1. Visit this Replit Git pane and click "Commit All & Push". Note that sometimes the Git
+   pane **will not detect your changes automatically**. If this happens,
+   you can close the Git tab and re-open it using the steps above.
+
+2. Open the Shell in Replit, and use normal Git commands. You will be prompted
+   to verify usage of your Git credentials from Replit. For example, you can
+   use the following series of commands to push new code.
+
+```bash
+git add .
+git commit -m "A comment about my new changes"
+git push # or, for the first time, "git push -u origin main"
+```
+
+![Git repo](images/replit_git_example.png)
 
 ## Note on ease-of-use (optional)
 
-For a more streamlined way to upload code for your bot you can also 
-**configure the Run button to push to your GitHub repository)**. If you'd 
-like to configure this approach, please do the following:
-
-1. Create a new **empty** repo on [GitHub](https://github.com)
-2. Open the **Secrets** tool on Replit (from the tool pane or by searching
-   for "Secrets" in a new editor tab).
-3. Click **Open Raw Editor**
-4. Enter the following JSON (see below code block for more info on these values):
-
-```
-{
-  "GITHUB_REPO": "The url of the HTTPS git link to your git repo",
-  "GITHUB_EMAIL": "Your GitHub email address",
-  "GITHUB_USERNAME": "Your GitHub username",
-  "GITHUB_TOKEN": "A personal access token"
-}
-```
-
-* `GITHUB_REPO` - The HTTPS link (_not_ the SSH link) to your GitHub repo. This repository **should be empty***. You can get the link by clicking the "< > Code" button on GitHub and copying the text from the HTTPS tab to your clipboard
-* `GITHUB_EMAIL` - The email you use for your GitHub account, which can be found in your profile
-* `GITHUB_USERNAME` - Your GitHub username
-* `GITHUB_TOKEN` - A personal access token, generated from https://github.com/settings/tokens. Make sure to select all permissions for "repo".
-
-Now, whenever you click **Run**, the code will automatically push to that repo with a default
-message.
-
-Our code is now ready on GitHub! Let's connect this code to our Regression Games
-account!
+Coming soon - configs to have the "Run" button in Replit push your code
+for you!
