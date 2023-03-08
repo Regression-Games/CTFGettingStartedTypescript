@@ -14,14 +14,16 @@ Open the "Git" tool on Replit from the tools section (or by clicking
 
 In the Git window that appears, click "+ Create a Git repo". Wait a few
 seconds, as it sets everything up in your Repl. Eventually, you should
-see a "New Repo" button appear (or a button to connect your GitHub account
-if you haven't yet - do that first). Click that button, and then click
+see a "New repo" button appear (or a button to connect your GitHub account
+if you haven't yet - do that first). Click that button enter info about your
+new bot (see example below), and then click
 "+ Create repository". After a few seconds, your code will be pushed
-to GitHub! You can now visit your GitHub repository by clicking the
-link at the top of the Git tool pane. _Note that sometimes you will need
-to click "Push" yourself if Replit has not pushed yet._
+to GitHub (or click the **Push** button yourself if it is present).
+You can now visit your GitHub repository by clicking the
+link at the top of the Git tool pane.
 
 ![Git initialized](images/replit_git_2.png)
+![Git initialized](images/replit_git_3.png)
 
 ## Updating code
 
