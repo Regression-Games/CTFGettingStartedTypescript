@@ -1,7 +1,6 @@
-compile = "./.config/build.sh"
-run = "node --enable-source-maps .build/index.js"
+run = "chmod +x replit_intro.sh && ./replit_intro.sh"
 entrypoint = "index.ts"
-hidden = [".build", ".config"]
+hidden = [".build", ".config", "replit_intro.sh"]
 
 [packager]
 language = "nodejs"

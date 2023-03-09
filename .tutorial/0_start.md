@@ -11,7 +11,6 @@ _Sign up at https://play.regression.gg/events_
 
 [![Regression Games Alpha Cup Video](https://img.youtube.com/vi/RgUIYXuewzU/0.jpg)](http://www.youtube.com/watch?v=RgUIYXuewzU "Regression Games Alpha Cup Video")
 
-
 The Alpha Cup, sponsored by Steamship, is a 3v3 Capture the Flag tournament in Minecraft.
 Players program bots in TypeScript, JavaScript, and Python to score points by capturing
 flags and killing the opposing team. The first team to 10 flag captures wins! Learn more
