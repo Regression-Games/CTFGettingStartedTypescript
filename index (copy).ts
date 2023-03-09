@@ -26,26 +26,15 @@ export function configureBot(bot: RGBot) {
   // Instantiate our helper utilities and events for Capture the Flag
   const rgctfUtils = new RGCTFUtils(bot);
 
-  // track how many times we've died
-  let deaths = 0
-  
-  bot.on('death', () => {
-    console.log("I have died...")
-    ++deaths;
-    try {
-      // stop any current pathfinding goal
-      // @ts-ignore
-      bot.mineflayer().pathfinder.setGoal(null)
-      // @ts-ignore
-      bot.mineflayer().pathfinder.stop()
-    } catch (ex) {
-  
+  // When a player types "start" in the chat, the bot will begin
+  // looking for and approaching the flag
+  bot.on('chat', async (username: string, message: string) => {
+    if (username === bot.username()) return;
+    if (message === 'start') {
+      bot.chat("Going to start capturing the flag!")
+      await rgctfUtils.approachFlag()
     }
   })
-
-  bot.on('spawn', async () => {
-    await rgctfUtils.approachFlag();
-  });
 
   // When a player obtains the flag, this event gets called.
   // In the case where that player is this bot, the bot
@@ -56,29 +45,15 @@ export function configureBot(bot: RGBot) {
     }
   });
 
-  let isCollectingItems = false;
-
-  // If the flag was scored, collect items until the flag is available
+  // If the flag was scored, simply chat a message
   bot.on(CTFEvent.FLAG_SCORED, async (teamName: string) => {
-    let previousDeaths = deaths
-	  const codeStillRunning = () => {return previousDeaths === deaths}
-    bot.chat(`Flag scored by ${teamName} team, collecting items until new flag is here`)
-    isCollectingItems = true;
-    while(rgctfUtils.getFlagLocation() === null && codeStillRunning()) {
-      await bot.findAndCollectItemsOnGround();
-      await bot.waitForMilliseconds(500);
-    }
-    isCollectingItems = false;
-    if (codeStillRunning()) await rgctfUtils.approachFlag();
+    bot.chat(`Flag scored by ${teamName} team, waiting until it respawns`)
   })
 
-  // Once the flag respawns on the map, look for and approach the flag, only if
-  // we are not busy collecting items
+  // Once the flag respawns on the map, look for and approach the flag.
   bot.on(CTFEvent.FLAG_AVAILABLE, async (position: Vec3) => {
-    if (!isCollectingItems) {
-      bot.chat("Flag is available, going to get it")
-      await rgctfUtils.approachFlag();
-    }
+    bot.chat("Flag is available, going to get it")
+    await rgctfUtils.approachFlag();
   })
 
 }
